@@ -27,7 +27,7 @@ app.post('/api/send-whatsapp-message', async (req, res) => {
   // 👉 Prefix +91 if not present
   const formattedNumber = phoneNumber.startsWith('+91') ? phoneNumber : `+91${phoneNumber}`;
 
-  const apiUrl = 'https://apiv1.anantya.ai/api/Campaign/SendSingleTemplateMessage?templateId=2087';
+  const apiUrl = 'https://apiv1.anantya.ai/api/Campaign/SendSingleTemplateMessage?templateId=2101';
   const apiKey = '931C2D6E-0C0D-4A6F-880B-B1FE075F5956';
 
   const formData = new FormData();
