@@ -26,7 +26,7 @@ app.post('/api/send-whatsapp-message', async (req, res) => {
   }
 
   const formattedNumber = phoneNumber.startsWith('+91') ? phoneNumber : `+91${phoneNumber}`;
-  const apiUrl = 'https://apiv1.anantya.ai/api/Campaign/SendSingleTemplateMessage?templateId=2117';
+  const apiUrl = 'https://apiv1.anantya.ai/api/Campaign/SendSingleTemplateMessage?templateId=2119';
   const apiKey = '931C2D6E-0C0D-4A6F-880B-B1FE075F5956';
 
   const formData = new FormData();
@@ -80,26 +80,31 @@ app.post('/api/send-email', async (req, res) => {
       subject: `You’re in. It’s time to NEO your Automation!, ${name}!`,
 text: `Hi ${name},
 
-You just made the smartest move toward turning WhatsApp into a full-blown growth machine for your business. 🔥
-With Anantya NEO, you don’t just get access — you get the power to choose, control, and scale the way you want.
+You just made the smartest move toward **turning WhatsApp into a full-blown growth machine** for your business. 🔥  
+With **Anantya NEO**, you don’t just get access — *you get the power to choose, control, and scale the way you want.*
 
-Here’s something extra waiting for you inside NEO:
+Here’s something extra waiting for you inside **NEO**:
 
-1. First 1000 utility messages — free, on us!
-2. ⁠Lifetime validity on your credits (no expiry, no waste)
-3. ⁠Free WhatsApp Widget — make your website a sales magnet
-4. ⁠Fully customizable platform — pick any 5 features, your way
+1. **First 1000 utility messages — free, on us!**
+2. **Lifetime validity** on your credits for all active accounts (no expiry, no waste)
+3. **Free WhatsApp Widget** — make your website a sales magnet
+4. **Fully customizable platform** — pick any 5 features, your way
 
-Pick any 5 high-impact WhatsApp tools from chatbots to bulk campaigns, automation to insights — NEO lets you handpick your WhatsApp growth stack in just ₹10,999/year.
+**Pick any 5 high-impact WhatsApp tools** from chatbots to bulk campaigns, automation to insights —  
+**NEO lets you handpick** your WhatsApp growth stack in **just ₹10,999/year**.
 
-Whether you’re a solo founder or a growing brand — this is your launchpad.🎯 
+Whether you’re a solo founder or a growing brand — this is your launchpad.🎯
 
-👉 [Schedule a quick demo with our experts now!](https://calendly.com/info-w0m/30min?month=2025-07)
+<a href="https://calendly.com/info-w0m/30min?month=2025-07">
+  👉 Schedule a quick demo with our experts now!
+</a>
+
 
 Let’s get your business on WhatsApp — the right way.
 
 Warm regards,  
-— Team Anantya`,
+— Team Anantya`
+
     });
 
     console.log('✅ Email sent to:', email);
