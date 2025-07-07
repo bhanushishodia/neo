@@ -73,39 +73,38 @@ app.post('/api/send-email', async (req, res) => {
       },
     });
 
-    await transporter.sendMail({
-      from: 'info@anantya.ai',
-      to: email,
-      cc: ['yashika@anantya.ai', 'sales@anantya.ai', 'mokshika@anantya.ai'],
-      subject: `You’re in. It’s time to NEO your Automation!, ${name}!`,
-text: `Hi ${name},
 
-You just made the smartest move toward **turning WhatsApp into a full-blown growth machine** for your business. 🔥  
-With **Anantya NEO**, you don’t just get access — *you get the power to choose, control, and scale the way you want.*
+const html = `Hi ${name},<br><br>
 
-Here’s something extra waiting for you inside **NEO**:
+You just made the smartest move toward <strong>turning WhatsApp into a full-blown growth machine</strong> for your business. 🔥<br>
+With <strong>Anantya NEO</strong>, you don’t just get access — <em>you get the power to choose, control, and scale the way you want.</em><br><br>
 
-1. **First 1000 utility messages — free, on us!**
-2. **Lifetime validity** on your credits for all active accounts (no expiry, no waste)
-3. **Free WhatsApp Widget** — make your website a sales magnet
-4. **Fully customizable platform** — pick any 5 features, your way
+Here’s something extra waiting for you inside <strong>NEO</strong>:<br><br>
 
-**Pick any 5 high-impact WhatsApp tools** from chatbots to bulk campaigns, automation to insights —  
-**NEO lets you handpick** your WhatsApp growth stack in **just ₹10,999/year**.
+1. <strong>First 1000 utility messages — free, on us!</strong><br>
+2. <strong>Lifetime validity</strong> on your credits for all active accounts (no expiry, no waste)<br>
+3. <strong>Free WhatsApp Widget</strong> — make your website a sales magnet<br>
+4. <strong>Fully customizable platform</strong> — pick any 5 features, your way<br><br>
 
-Whether you’re a solo founder or a growing brand — this is your launchpad.🎯
+<strong>Pick any 5 high-impact WhatsApp tools</strong> from chatbots to bulk campaigns, automation to insights —<br>
+<strong>NEO lets you handpick</strong> your WhatsApp growth stack in <strong>just ₹10,999/year</strong>.<br><br>
 
-<a href="https://calendly.com/info-w0m/30min?month=2025-07">
-  👉 Schedule a quick demo with our experts now!
-</a>
+Whether you’re a solo founder or a growing brand — this is your launchpad. 🎯<br><br>
 
+👉 <a href="https://calendly.com/info-w0m/30min?month=2025-07" target="_blank">Schedule a quick demo with our experts now!</a><br><br>
 
-Let’s get your business on WhatsApp — the right way.
+Let’s get your business on WhatsApp — the right way.<br><br>
 
-Warm regards,  
-— Team Anantya`
+Warm regards,<br>
+— Team Anantya`;
 
-    });
+await transporter.sendMail({
+  from: 'info@anantya.ai',
+  to: email,
+  cc: ['yashika@anantya.ai', 'sales@anantya.ai', 'mokshika@anantya.ai'],
+  subject: `You’re in. It’s time to NEO your Automation!, ${name}!`,
+  html // use the html content here
+});
 
     console.log('✅ Email sent to:', email);
     return res.status(200).json({ success: true });
