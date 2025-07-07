@@ -77,21 +77,29 @@ app.post('/api/send-email', async (req, res) => {
       from: 'info@anantya.ai',
       to: email,
       cc: ['yashika@anantya.ai', 'sales@anantya.ai', 'mokshika@anantya.ai'],
-      subject: `Let’s Make Your Business Future-Ready with AI – Here’s How, ${name}!`,
-      text: `Hi ${name},
+      subject: `You’re in. It’s time to NEO your Automation!, ${name}!`,
+text: `Hi ${name},
 
-Hope this note finds you thriving!
+You just made the smartest move toward turning WhatsApp into a full-blown growth machine for your business. 🔥
+With Anantya NEO, you don’t just get access — you get the power to choose, control, and scale the way you want.
 
-I’m reaching out from Anantya.ai, where we’re redefining how businesses connect, convert, and scale using AI-driven communication. From automating conversations to building seamless customer journeys, we help brands do more—faster and smarter.
+Here’s something extra waiting for you inside NEO:
 
-If you're exploring ways to reduce response time, personalize engagement at scale, or simply make your operations more efficient (and who isn't?), Anantya can help. Think of us as your one-stop platform for omnichannel communication, intelligent automation, and CRM—all powered by AI.
+1. First 1000 utility messages — free, on us!
+2. ⁠Lifetime validity on your credits (no expiry, no waste)
+3. ⁠Free WhatsApp Widget — make your website a sales magnet
+4. ⁠Fully customizable platform — pick any 5 features, your way
 
-I’d love to schedule a quick 15-minute call to walk you through how Anantya can drive tangible results for your team. What does your calendar look like this week?
+Pick any 5 high-impact WhatsApp tools from chatbots to bulk campaigns, automation to insights — NEO lets you handpick your WhatsApp growth stack in just ₹10,999/year.
 
-Looking forward to connecting!
+Whether you’re a solo founder or a growing brand — this is your launchpad.🎯 
+
+👉 [Schedule a quick demo with our experts now!](https://calendly.com/info-w0m/30min?month=2025-07)
+
+Let’s get your business on WhatsApp — the right way.
 
 Warm regards,  
-Anantya Team`,
+— Team Anantya`,
     });
 
     console.log('✅ Email sent to:', email);
