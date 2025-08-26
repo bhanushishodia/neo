@@ -5,7 +5,7 @@ import fetch from 'node-fetch';
 import FormData from 'form-data';
 import nodemailer from 'nodemailer'; // 👈 Added this
 
-const app = express();
+const app = express();      
 const PORT = 5000;
 
 app.use(cors());
@@ -13,8 +13,9 @@ app.use(bodyParser.json());
 
 // ✅ Root route
 app.get('/', (req, res) => {
-  res.send('✅ Backend Server is Running!');
+  res.send('✅ Backend Server is Running for neo automation and event form');      
 });
+
 
 // ✅ Send WhatsApp Message
 app.post('/api/send-whatsapp-message', async (req, res) => {
@@ -53,6 +54,46 @@ app.post('/api/send-whatsapp-message', async (req, res) => {
     return res.status(500).json({ success: false, error: err.message });
   }
 });
+// ✅ Send WhatsApp Message for lead event template 31 & 32
+app.post('/api/send-demo-message', async (req, res) => {
+  const { phoneNumber, name, demo } = req.body;
+
+  if (!phoneNumber || !name || !demo) {
+    return res.status(400).json({ success: false, error: 'Missing data' });
+  }
+
+  // ✅ Template selection based on Yes / No
+  const templateId = demo.includes("Yes") ? 32 : 31;
+
+  const formattedNumber = phoneNumber.startsWith('+91') ? phoneNumber : `+91${phoneNumber}`;
+  const apiUrl = `https://apiv1.anantya.ai/api/Campaign/SendSingleTemplateMessage?templateId=${templateId}`;
+  const apiKey = '93D4D611-F8A2-42C8-B1C0-EF65EC1D5994';
+
+  const formData = new FormData();
+  formData.append('ContactName', name);
+  formData.append('ContactNo', formattedNumber);
+  formData.append('Attribute1', name);
+
+  try {
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'X-Api-Key': apiKey,
+        'accept': '*/*',
+        ...formData.getHeaders(),
+      },
+      body: formData,
+    });
+
+    const data = await response.json();
+    return res.status(200).json({ success: true, data });
+
+  } catch (err) {
+    console.error('❌ Error sending demo WhatsApp message:', err);
+    return res.status(500).json({ success: false, error: err.message });
+  }
+});
+
 
 // ✅ Send Email (Nodemailer)
 app.post('/api/send-email', async (req, res) => {
@@ -101,7 +142,7 @@ Warm regards,<br>
 await transporter.sendMail({
   from: 'info@anantya.ai',
   to: email,
-  cc: ['yashika@anantya.ai', 'sales@anantya.ai', 'mokshika@anantya.ai'],
+  cc: ['sales@anantya.ai', 'bhanu@anantya.ai', 'mokshika@anantya.ai'],
   subject: `You’re in. It’s time to NEO your Automation!, ${name}!`,
   html // use the html content here
 });
@@ -118,3 +159,5 @@ await transporter.sendMail({
 app.listen(PORT, () => {
   console.log(`✅ Server running at http://localhost:${PORT}`);
 });
+
+
