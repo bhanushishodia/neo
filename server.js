@@ -106,7 +106,9 @@ app.post('/api/send-email', async (req, res) => {
 
   try {
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
       auth: {
         user: 'info@anantya.ai',
         pass: 'ttdvfghqqgjxtcux', 
