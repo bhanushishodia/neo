@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 // ✅ Root route
 app.get('/', (req, res) => {
-  res.send('✅ Backend Server is Running for neo automation and event form');      
+  res.send('✅ Backend Server is Running for neo automation and event form update app passowrd');      
 });
 
 
@@ -109,7 +109,8 @@ app.post('/api/send-email', async (req, res) => {
       service: 'gmail',
       auth: {
         user: 'info@anantya.ai',
-        pass: 'ycwnkxqnzsmcuqoj', // 👈 Use your Gmail App Password here
+        pass: 'ttdvfghqqgjxtcux', 
+        //  pass: 'ycwnkxqnzsmcuqoj', 
  
       },
     });
